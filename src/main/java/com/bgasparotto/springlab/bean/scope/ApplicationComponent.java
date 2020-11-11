@@ -3,14 +3,14 @@ package com.bgasparotto.springlab.bean.scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import java.time.Instant;
+import java.util.UUID;
 
 @Component
 @ApplicationScope
 public class ApplicationComponent {
-    private final Instant creationInstant = Instant.now();
+    private final String id = UUID.randomUUID().toString();
 
-    public Instant getCreationInstant() {
-        return creationInstant;
+    public String getId() {
+        return id;
     }
 }
