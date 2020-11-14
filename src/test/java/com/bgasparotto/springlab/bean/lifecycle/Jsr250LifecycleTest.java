@@ -19,7 +19,7 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration
 @DirtiesContext(classMode = AFTER_EACH_TEST_METHOD)
-public class Jsf250LifecycleTest {
+public class Jsr250LifecycleTest {
     private static final Queue<String> lifecycleEvents = new LinkedList<>();
 
     @Autowired
@@ -43,7 +43,7 @@ public class Jsf250LifecycleTest {
     static class Config {
 
         @Bean
-        Jsr250Lifecycle myComponent() {
+        Jsr250Lifecycle beanUnderTest() {
             return new Jsr250Lifecycle(lifecycleEvents);
         }
     }
