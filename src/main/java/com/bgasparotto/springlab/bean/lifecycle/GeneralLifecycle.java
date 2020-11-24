@@ -19,40 +19,40 @@ public class GeneralLifecycle implements InitializingBean, DisposableBean, BeanN
 
     public GeneralLifecycle(Queue<String> lifecycleEvents) {
         this.lifecycleEvents = lifecycleEvents;
-        lifecycleEvents.add("Constructor");
+        lifecycleEvents.offer("Constructor");
     }
 
     @Override
     public void setBeanName(String name) {
-        lifecycleEvents.add("BeanNameAware setBeanName(String)");
+        lifecycleEvents.offer("BeanNameAware setBeanName(String)");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        lifecycleEvents.add("ApplicationContextAware setApplicationContext(...)");
+        lifecycleEvents.offer("ApplicationContextAware setApplicationContext(...)");
     }
 
     @PostConstruct
     private void postConstruct() {
-        lifecycleEvents.add("@PostConstruct postConstruct()");
+        lifecycleEvents.offer("@PostConstruct postConstruct()");
     }
 
     @Override
     public void afterPropertiesSet() {
-        lifecycleEvents.add("InitializingBean afterPropertiesSet()");
+        lifecycleEvents.offer("InitializingBean afterPropertiesSet()");
     }
 
     public void logIt() {
-        lifecycleEvents.add("logIt()");
+        lifecycleEvents.offer("logIt()");
     }
 
     @PreDestroy
     private void preDestroy() {
-        lifecycleEvents.add("@PreDestroy preDestroy()");
+        lifecycleEvents.offer("@PreDestroy preDestroy()");
     }
 
     @Override
     public void destroy() {
-        lifecycleEvents.add("DisposableBean destroy()");
+        lifecycleEvents.offer("DisposableBean destroy()");
     }
 }

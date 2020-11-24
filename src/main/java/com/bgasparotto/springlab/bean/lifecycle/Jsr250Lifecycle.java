@@ -9,20 +9,20 @@ public class Jsr250Lifecycle {
 
     public Jsr250Lifecycle(Queue<String> lifecycleEvents) {
         this.lifecycleEvents = lifecycleEvents;
-        lifecycleEvents.add("Constructor");
+        lifecycleEvents.offer("Constructor");
     }
 
     @PostConstruct
     private void init() {
-        lifecycleEvents.add("@PostConstruct init()");
+        lifecycleEvents.offer("@PostConstruct init()");
     }
 
     public void logIt() {
-        lifecycleEvents.add("logIt()");
+        lifecycleEvents.offer("logIt()");
     }
 
     @PreDestroy
     private void destroy() {
-        lifecycleEvents.add("@PreDestroy destroy()");
+        lifecycleEvents.offer("@PreDestroy destroy()");
     }
 }

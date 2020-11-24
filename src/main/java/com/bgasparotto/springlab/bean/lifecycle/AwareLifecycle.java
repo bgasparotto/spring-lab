@@ -11,20 +11,20 @@ public class AwareLifecycle implements BeanNameAware, ApplicationContextAware {
 
     public AwareLifecycle(Queue<String> lifecycleEvents) {
         this.lifecycleEvents = lifecycleEvents;
-        lifecycleEvents.add("Constructor");
+        lifecycleEvents.offer("Constructor");
     }
 
     @Override
     public void setBeanName(String name) {
-        lifecycleEvents.add("BeanNameAware setBeanName(String)");
+        lifecycleEvents.offer("BeanNameAware setBeanName(String)");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        lifecycleEvents.add("ApplicationContextAware setApplicationContext(...)");
+        lifecycleEvents.offer("ApplicationContextAware setApplicationContext(...)");
     }
 
     public void logIt() {
-        lifecycleEvents.add("logIt()");
+        lifecycleEvents.offer("logIt()");
     }
 }

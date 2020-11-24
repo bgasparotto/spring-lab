@@ -10,20 +10,20 @@ public class InitializingDisposableLifecycle implements InitializingBean, Dispos
 
     public InitializingDisposableLifecycle(Queue<String> lifecycleEvents) {
         this.lifecycleEvents = lifecycleEvents;
-        lifecycleEvents.add("Constructor");
+        lifecycleEvents.offer("Constructor");
     }
 
     @Override
     public void afterPropertiesSet() {
-        lifecycleEvents.add("InitializingBean afterPropertiesSet()");
+        lifecycleEvents.offer("InitializingBean afterPropertiesSet()");
     }
 
     public void logIt() {
-        lifecycleEvents.add("logIt()");
+        lifecycleEvents.offer("logIt()");
     }
 
     @Override
     public void destroy() {
-        lifecycleEvents.add("DisposableBean destroy()");
+        lifecycleEvents.offer("DisposableBean destroy()");
     }
 }
